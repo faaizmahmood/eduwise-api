@@ -3,8 +3,10 @@ const app = express()
 const db = require('./db/db')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const passport = require('passport')
 
 app.use(bodyParser.json())
+app.use(passport.initialize())
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -14,10 +16,20 @@ app.use(cors({
 
 
 // routes
-const authRouter = require('./routes/auth')
+const authRouter = require('./routes/auth/auth')
+
+
+// Middlware
+
+const logRequest=(req, res, next)=>{
+   console.log(`${new Date().toLocaleString()} Request made to: ${req.originalUrl}`);
+   next()
+}
+
+app.use(logRequest)
 
 app.get('/', (req, res)=>{
-    res.send("Working...")
+    res.send("Express JS is running...")
 })
 
 

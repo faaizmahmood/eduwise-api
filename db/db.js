@@ -3,7 +3,7 @@ require('dotenv').config()
 
 const mongoURL = process.env.mongoURL
 
-mongoose.connect(mongoURL)
+mongoose.connect(mongoURL, )
 
 const db = mongoose.connection
 
