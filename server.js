@@ -16,7 +16,9 @@ app.use(cors({
 
 
 // routes
-const authRouter = require('./routes/auth/auth')
+const authSigninRouter = require('./routes/auth/siginin/authSigin')
+const authSignupRourter = require('./routes/auth/signup/authSignup')
+const authUsernameRouter = require('./routes/auth/username/username')
 
 
 // Middlware
@@ -34,7 +36,9 @@ app.get('/', (req, res)=>{
 
 
 // end points
-app.use('/auth', authRouter)
+app.use('/auth', authSigninRouter)
+app.use('/auth', authSignupRourter)
+app.use('/auth', authUsernameRouter)
 
 
 app.listen(5000, ()=>{

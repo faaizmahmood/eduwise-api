@@ -2,7 +2,11 @@ const mongoose = require('mongoose')
 const bycrypt = require('bcrypt')
 
 const authSchema = new mongoose.Schema({
-    fullName: {
+    fName: {
+        type: String,
+        required: true,
+    },
+    lName: {
         type: String,
         required: true,
     },
@@ -16,26 +20,18 @@ const authSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: 6,  // Minimum length for password
+        minlength: 8,
     },
     username: {
         type: String,
         required: true,
-        unique: true,  // Ensures no duplicate usernames
-        trim: true,  // Trims whitespace
+        unique: true, 
+        trim: true,
     },
-    occupation: {
-        type: String,
+    privacyPolicy: {
+        type: Boolean,
         required: true,
     },
-    fieldOfStudy: {
-        type: String,
-        required: true,
-    },
-    highestEducation: {
-        type: String,
-        required: true,
-    }
 },
 { timestamps: true }
 )

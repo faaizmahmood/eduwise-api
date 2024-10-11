@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../../models/auth')
+const User = require('../../../models/auth')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
